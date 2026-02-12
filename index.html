@@ -39,12 +39,6 @@
         transition: 0.3s ease;
         position: relative;
     }
-    button img {
-        height: 1.2em;
-        width: auto;
-        vertical-align: middle;
-        margin-left: 5px;
-    }
 
     #yesBtn {
         background-color: #4CAF50;
@@ -99,16 +93,32 @@
         0% { transform: scale(0.5); opacity: 0; }
         100% { transform: scale(1); opacity: 1; }
     }
+        /* Ending screen */
+    #endingScreen {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(45deg, #ff99cc, #ff6bb5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 2s ease;
+        z-index: 5;
+    }
 </style>
 </head>
 
 <body>
 
-<h1>Cheryl <br>Will we have a dinner tonight?</h1>
+<h1>CHERYLLLL <br>Let's have a dinner together tonight?</h1>
 
 <div class="buttons" id="buttonArea">
-    <button id="yesBtn">YES! <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzVxaDl0ZXoxc2JpbmwxYTl0ZWZkY2M1dG9lcGNmdGNtcHUxeTl6NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/x0TR2vOYIUlgjb0aS3/giphy.gif"> </button>
-    <button id="noBtn">NO <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenI1eWttaWI0cmV1OWkyd3o3cDRnZmM1NGFsaTUxOGwxY20zYTNnbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9jR2okghEViKbF6bHp/giphy.gif"> </button>
+    <button id="yesBtn">YES!!!🤪 </button>
+    <button id="noBtn">NO🙈 </button>
 </div>
 
 <!-- Ribbon Message -->
@@ -121,6 +131,10 @@
     <img id="randomGif" src="">
     <div id="bunnyText"></div>
 </div>
+
+<div id="endingScreen">
+    Yeay! See you soon Adeekkk!!! 💕
+</div>    
 
 <audio id="bgMusic" loop>
     <source src="https://raw.githubusercontent.com/kiebodong99-commits/test5/blob/main/keepyouasafe.mp4" type="audio/mpeg">
@@ -208,6 +222,7 @@
 
 </body>
 </html>
+
 
 
 
