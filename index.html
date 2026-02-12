@@ -182,9 +182,16 @@
 
     // YES BUTTON
     yesBtn.addEventListener("click", () => {
-        startMusic();
-        loveRibbon.style.display = "block";
-    });
+    startMusic();
+    loveRibbon.style.display = "block";
+
+    // Show ending screen after short delay
+    setTimeout(() => {
+        const endingScreen = document.getElementById("endingScreen");
+        endingScreen.style.opacity = "1";
+        endingScreen.style.pointerEvents = "auto";
+    }, 1500); // appears after 1.5s
+});
 
     // NO BUTTON
     noBtn.addEventListener("click", () => {
@@ -222,6 +229,7 @@
 
 </body>
 </html>
+
 
 
 
