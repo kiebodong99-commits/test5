@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinner Proposal for Cheryl 💕</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: linear-gradient(to bottom right, #ffe6f0, #fff5f9);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    h1 {
+        color: #ff4d88;
+        margin-bottom: 40px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        position: relative;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        position: relative;
+    }
+
+    #yesBtn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    #noBtn {
+        background-color: #ff4d4d;
+        color: white;
+        position: absolute;
+    }
+
+    /* Pink ribbon banner */
+    #loveRibbon {
+        position: fixed;
+        top: 20px;
+        background: linear-gradient(45deg, #ff66a3, #ff99cc);
+        padding: 15px 40px;
+        border-radius: 50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        display: none;
+        animation: pop 0.6s ease;
+        z-index: 10;
+    }
+
+    #loveRibbon img {
+        width: 50px;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    #bunnyContainer {
+        margin-top: 40px;
+        display: none;
+        animation: pop 0.5s ease;
+    }
+
+    #bunnyContainer img {
+        width: 200px;
+    }
+
+    #bunnyText {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #ff66a3;
+        font-weight: bold;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Cheryl 💕<br>Will we have a dinner tonight?</h1>
+
+<div class="buttons" id="buttonArea">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 🙈</button>
+</div>
+
+<!-- Ribbon Message -->
+<div id="loveRibbon">
+    I know you would like to, princesssss! :) 💕
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+</div>
+
+<div id="bunnyContainer">
+    <img id="randomGif" src="">
+    <div id="bunnyText"></div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/aa/bb/cc/aabbccdd-eeff-gg.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const bunnyContainer = document.getElementById("bunnyContainer");
+    const bunnyText = document.getElementById("bunnyText");
+    const randomGif = document.getElementById("randomGif");
+    const loveRibbon = document.getElementById("loveRibbon");
+    const bgMusic = document.getElementById("bgMusic");
+
+    let yesScale = 1;
+    let noScale = 1;
+    let musicStarted = false;
+
+    const gifs = [
+        "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+        "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+        "https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif",
+        "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+    ];
+
+    const messages = [
+        "Are you suuuure, pretty Cheryl?",
+        "What if I promise extra giggles?",
+        "But I already practiced my charming smile.",
+        "Can I trade one smile for one meal?",
+        "What if it’s the yummiest yes ever?",
+        "Just food… and my adorable company?",
+        "Okay okay… but what if I say PRETTTYYYY please?"
+    ];
+
+    let messageIndex = 0;
+
+    function startMusic() {
+        if (!musicStarted) {
+            bgMusic.play().catch(() => {});
+            musicStarted = true;
+        }
+    }
+
+    // YES BUTTON
+    yesBtn.addEventListener("click", () => {
+        startMusic();
+        loveRibbon.style.display = "block";
+    });
+
+    // NO BUTTON
+    noBtn.addEventListener("click", () => {
+        startMusic();
+
+        // Resize
+        yesScale *= 1.15;
+        noScale *= 0.85;
+
+        yesBtn.style.transform = `scale(${yesScale})`;
+        noBtn.style.transform = `scale(${noScale})`;
+
+        // Move randomly but stay visible
+        const maxX = window.innerWidth - 100;
+        const maxY = window.innerHeight - 100;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.position = "fixed";
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+
+        // Random GIF
+        const randomIndex = Math.floor(Math.random() * gifs.length);
+        randomGif.src = gifs[randomIndex];
+
+        // Message
+        bunnyText.textContent = messages[messageIndex];
+        messageIndex = (messageIndex + 1) % messages.length;
+
+        bunnyContainer.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
