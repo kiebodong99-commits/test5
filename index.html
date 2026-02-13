@@ -99,8 +99,10 @@
         inset: 0;
         background: linear-gradient(45deg, #ff99cc, #ff6bb5);
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 20px;
         color: white;
         font-size: 30px;
         font-weight: bold;
@@ -109,6 +111,12 @@
         transition: opacity 1.5s ease;
         z-index: 5;
     }
+
+    #endingGif {
+    width: 200px;
+    max-width: 80%;
+    }
+
 </style>
 </head>
 
@@ -117,8 +125,8 @@
 <h1>CHERYLLLL <br>Let's have a dinner together tonight?</h1>
 
 <div class="buttons" id="buttonArea">
-    <button id="yesBtn">YES!!!🤪 </button>
-    <button id="noBtn">NO🙈 </button>
+    <button id="yesBtn">YES!!! 🤪 </button>
+    <button id="noBtn">NO 🙈 </button>
 </div>
 
 <!-- Ribbon Message -->
@@ -132,8 +140,10 @@
 </div>
 
 <div id="endingScreen">
-    Yeay! See you soon Adeekkk!!! 💕
-</div>    
+    <img id="endingGif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnkwZXRrbGtuczdwNGUyNm91NGcxeTB4YzVyMXEyMWZzbnd6ZTZiZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xdt9MMFyXHg4ysiAcV/giphy.gif">
+    <div>Yeay! See you soon Adeekkk!!! 💕</div>
+</div>
+ 
 
 <audio id="bgMusic" src="keepyouasafe.mp3" loop> bgMusic.volume = 0.4
 </audio>
@@ -227,6 +237,7 @@
 
 </body>
 </html>
+
 
 
 
